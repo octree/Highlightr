@@ -16,8 +16,6 @@ class ViewController: UIViewController {
         textView.autocorrectionType = .no
         textView.smartQuotesType = .no
         textView.backgroundColor = textStorage.highlightr.theme.themeBackgroundColor
-        textView.showsVerticalScrollIndicator = false
-        textView.isScrollEnabled = false
         return textView
     }()
     override func viewDidLoad() {
