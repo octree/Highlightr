@@ -91,7 +91,7 @@ Yes, Highlightr relies on iOS & macOS [JavaScriptCore](https://developer.apple.c
 
 It will never be as fast as a native solution, but it's fast enough to be used on a real time editor.
 
-It's taking around of ms on my iPhone  iPhone Xs Max for processing 100 lines of swift code.
+It's taking around of 7.4ms on my iPhone  iPhone Xs Max for processing 100 lines of swift code.
 
 
 
