@@ -59,6 +59,10 @@ open class HighlightTextStorage: NSTextStorage {
             let start = range.location
             let attrs = self.highlightr.highlight(paragraph as String, as: language)
             DispatchQueue.main.async {
+                guard self.stringStorage.length >= range.location + range.length
+                    && self.stringStorage.attributedSubstring(from: range).string == string as String else {
+                    return
+                }
                 var location = start
                 self.beginEditing()
                 for elt in attrs {
