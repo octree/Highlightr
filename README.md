@@ -45,8 +45,15 @@ $ pod install
 
 ### Swift Package Manager
 
-```swift
 
+The [Swift Package Manager](https://swift.org/package-manager/) automates the distribution of Swift code. To use `Highlightr` with SPM, add a dependency to your `Package.swift` file:
+
+```swift
+let package = Package(
+    dependencies: [
+        .package(url: "https://github.com/octree/Highlightr.git", ...)
+    ]
+)
 ```
 
 ## Usage
