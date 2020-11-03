@@ -32,12 +32,12 @@ class ViewController: UIViewController {
             textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-
+        let color = higlightr.theme.themeForegroundColor
         #if targetEnvironment(macCatalyst)
         let textInputTraits = textView.value(forKey: "textInputTraits") as? NSObject
-        textInputTraits?.setValue(UIColor.systemTeal, forKey: "insertionPointColor")
+        textInputTraits?.setValue(color, forKey: "insertionPointColor")
         #else
-        textView.tintColor = .systemTeal
+        textView.tintColor = color
         #endif
     }
 

@@ -29,6 +29,7 @@ open class Theme {
     private var strippedTheme: ThemeStringDict!
 
     open var themeBackgroundColor: RPColor!
+    open var themeForegroundColor: RPColor!
 
     init(themeString: String) {
         theme = themeString
@@ -36,6 +37,8 @@ open class Theme {
         strippedTheme = stripTheme(themeString)
         lightTheme = strippedThemeToString(strippedTheme)
         themeDict = strippedThemeToTheme(strippedTheme)
+        let color = themeDict["hljs"]?[NSAttributedString.Key.foregroundColor] as? RPColor
+        themeForegroundColor = color ?? .black
         var bkgColorHex = strippedTheme[".hljs"]?["background"]
         if bkgColorHex == nil {
             bkgColorHex = strippedTheme[".hljs"]?["background-color"]
@@ -53,7 +56,6 @@ open class Theme {
         } else {
             themeBackgroundColor = RPColor.white
         }
-        print("")
     }
 
     open func setCodeFont(_ font: RPFont) {
