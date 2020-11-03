@@ -10,8 +10,7 @@ Highlightr is an iOS & macOS syntax highlighter built with Swift. It uses [highl
 
 Takes your lame string with code and returns a NSAttributtedString with proper syntax highlighting.
 
-![Sample Gif A](https://raw.githubusercontent.com/raspu/Highlightr/master/mix2.gif)
-![Sample Gif B](https://raw.githubusercontent.com/raspu/Highlightr/master/coding.gif)
+![Sample Demo](./coding.gif)
 
 ## Installation
 ### Requirements
@@ -92,7 +91,7 @@ Yes, Highlightr relies on iOS & macOS [JavaScriptCore](https://developer.apple.c
 
 It will never be as fast as a native solution, but it's fast enough to be used on a real time editor.
 
-It's taking around of 7.6ms on my iPhone  iPhone Xs Max for processing 100 lines of swift code.
+It's taking around of ms on my iPhone  iPhone Xs Max for processing 100 lines of swift code.
 
 
 
