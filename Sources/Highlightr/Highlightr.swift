@@ -92,11 +92,11 @@ open class Highlightr {
     private func tokens(for tree: TokenNode) -> [Attributes] {
         var result = [Attributes]()
         let kind = tree.children.count == 1 ? tree.kind : nil
-        let style = kind.map { "hljs-" + $0 }
+        let styles = kind.map { ["hljs", "hljs-" + $0] } ?? ["hljs"]
         for elt in tree.children {
             switch elt {
             case let .string(string):
-                let attrs = theme.styles(for: ["hljs", style ?? ""])
+                let attrs = theme.styles(for: styles)
                 result.append(Attributes(length: string.utf16.count, attributes: attrs))
             case let .node(node):
                 result.append(contentsOf: tokens(for: node))

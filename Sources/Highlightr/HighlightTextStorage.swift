@@ -71,10 +71,10 @@ open class HighlightTextStorage: NSTextStorage {
         }
     }
 
-    open override var string: String{
+    open override var string: String {
         stringStorage.string
     }
-    open override func attributes(at location: Int, effectiveRange range: NSRangePointer?) -> [NSAttributedString.Key : Any] {
+    open override func attributes(at location: Int, effectiveRange range: NSRangePointer?) -> [NSAttributedString.Key: Any] {
         return stringStorage.attributes(at: location, effectiveRange: range)
     }
 
@@ -83,7 +83,7 @@ open class HighlightTextStorage: NSTextStorage {
         edited(.editedCharacters, range: range, changeInLength: (str as NSString).length - range.length)
     }
 
-    open override func setAttributes(_ attrs: [NSAttributedString.Key : Any]?, range: NSRange) {
+    open override func setAttributes(_ attrs: [NSAttributedString.Key: Any]?, range: NSRange) {
         stringStorage.setAttributes(attrs, range: range)
         edited(.editedAttributes, range: range, changeInLength: 0)
     }
