@@ -159,7 +159,7 @@ languageDetectRe:/\blang(?:uage)?-([\w-]+)\b/i,classPrefix:"hljs-",
 tabReplace:null,useBR:!1,languages:null,__emitter:c};function h(e){
 return d.noHighlightRe.test(e)}function f(e,n,t,r){var a={code:n,language:e}
 ;N("before:highlight",a);var i=a.result?a.result:p(a.language,a.code,t,r)
-;return i.code=a.code,N("after:highlight",i),i}function p(e,t,r,i){var s=t
+;return N("after:highlight",i),i}function p(e,t,r,i){var s=t
 ;function l(e,n){var t=_.case_insensitive?n[0].toLowerCase():n[0]
 ;return Object.prototype.hasOwnProperty.call(e.keywords,t)&&e.keywords[t]}
 function c(){null!=y.subLanguage?function(){if(""!==O){var e=null
@@ -210,7 +210,7 @@ for(y.matcher.considerAll();;){
 T++,S?S=!1:y.matcher.considerAll(),y.matcher.lastIndex=j
 ;const e=y.matcher.exec(s);if(!e)break;const n=x(s.substring(j,e.index),e)
 ;j=e.index+n}return x(s.substr(j)),M.closeAllNodes(),M.finalize(),N=M.toJSON(),{
-relevance:L,value:N,language:e,illegal:!1,emitter:M,top:y}}catch(n){
+relevance:L,value:N,language:e,illegal:!1,top:y}}catch(n){
 if(n.message&&n.message.includes("Illegal"))return{illegal:!0,illegalBy:{
 msg:n.message,context:s.slice(j-100,j+100),mode:n.mode},sofar:N,relevance:0,
 value:I(s),emitter:M};if(o)return{illegal:!1,relevance:0,value:I(s),emitter:M,

@@ -1,13 +1,5 @@
-//
-//  ViewController.swift
-//  Example
-//
-//  Created by Octree on 2020/11/3.
-//
-
 import UIKit
 import Highlightr
-
 
 class ViewController: UIViewController {
     private var higlightr: Highlightr = Highlightr(theme: "atom-one-dark")!
@@ -24,11 +16,17 @@ class ViewController: UIViewController {
         textView.autocorrectionType = .no
         textView.smartQuotesType = .no
         textView.backgroundColor = textStorage.highlightr.theme.themeBackgroundColor
+        textView.showsVerticalScrollIndicator = false
+        textView.isScrollEnabled = false
         return textView
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let font = UIFont(name: "Fira Code", size: 20) {
+            higlightr.theme.setCodeFont(font)
+        }
         view.addSubview(textView)
+        textView.font = higlightr.theme.codeFont
         textView.translatesAutoresizingMaskIntoConstraints = false
         view.addConstraints([
             textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -36,6 +34,14 @@ class ViewController: UIViewController {
             textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+
+        #if targetEnvironment(macCatalyst)
+        let textInputTraits = textView.value(forKey: "textInputTraits") as? NSObject
+        textInputTraits?.setValue(UIColor.systemTeal, forKey: "insertionPointColor")
+        #else
+        textView.tintColor = .systemTeal
+        #endif
     }
+
 }
 

@@ -53,18 +53,22 @@ open class HighlightTextStorage: NSTextStorage {
         guard let language = language else {
             return
         }
-        let string = (self.string as NSString)
-        let paragraph = string.substring(with: range)
-        let start = range.location
-        let attrs = highlightr.highlight(paragraph as String, as: language)
-        var location = start
-        beginEditing()
-        for elt in attrs {
-            addAttributes(elt.attributes, range: NSRange(location: location, length: elt.length))
-            location += elt.length
+        DispatchQueue.global().async {
+            let string = (self.string as NSString)
+            let paragraph = string.substring(with: range)
+            let start = range.location
+            let attrs = self.highlightr.highlight(paragraph as String, as: language)
+            DispatchQueue.main.async {
+                var location = start
+                self.beginEditing()
+                for elt in attrs {
+                    self.addAttributes(elt.attributes, range: NSRange(location: location, length: elt.length))
+                    location += elt.length
+                }
+                self.edited(.editedAttributes, range: range, changeInLength: 0)
+                self.endEditing()
+            }
         }
-        edited(.editedAttributes, range: range, changeInLength: 0)
-        endEditing()
     }
 
     open override var string: String{
