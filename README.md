@@ -2,7 +2,6 @@
 
 
 [![Version](https://img.shields.io/cocoapods/v/Highlightr.svg?style=flat)](http://cocoapods.org/pods/Highlightr)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/Highlightr.svg)](http://cocoadocs.org/docsets/Highlightr/1.1.0/)
 [![License](https://img.shields.io/cocoapods/l/Highlightr.svg?style=flat)](http://cocoapods.org/pods/Highlightr)
 [![Platform](https://img.shields.io/cocoapods/p/Highlightr.svg?style=flat)](http://cocoapods.org/pods/Highlightr)
@@ -16,9 +15,9 @@ Takes your lame string with code and returns a NSAttributtedString with proper s
 
 ## Installation
 ### Requirements
-- iOS 8.0+
+- iOS 10.0+
 - macOS 10.10+
- 
+
 ### CocoaPods
 
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
@@ -44,42 +43,30 @@ Then, run the following command:
 $ pod install
 ```
 
-### Carthage
+### Swift Package Manager
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+```swift
 
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
 ```
-
-To integrate Highlightr into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "raspu/Highlightr"
-```
-
-Run `carthage update` to build the framework and drag the built `Highlightr.framework` into your Xcode project.Highlightr
 
 ## Usage
 Highlightr provides two main classes:
 
 ### Highlightr
-This is the main endpoint, you can use it to convert code strings into NSAttributed strings.
+
 ```Swift
 	let highlightr = Highlightr()
-	highlightr.setTheme(to: "paraiso-dark")
+	highlightr.setTheme(to: "dracula")
 	let code = "let a = 1"
 	// You can omit the second parameter to use automatic language detection.
 	let highlightedCode = highlightr.highlight(code, as: "swift") 
 	
 ```
-### CodeAttributedString
+### HighlightTextStorage
+
 A subclass of NSTextStorage, you can use it to highlight text on real time.
 ```Swift
-	let textStorage = CodeAttributedString()
+	let textStorage = HighlightTextStorage()
 	textStorage.language = "Swift"
 	let layoutManager = NSLayoutManager()
 	textStorage.addLayoutManager(layoutManager)
@@ -98,11 +85,9 @@ Yes, Highlightr relies on iOS & macOS [JavaScriptCore](https://developer.apple.c
 
 It will never be as fast as a native solution, but it's fast enough to be used on a real time editor.
 
-It comes with a custom made HTML parser for creating NSAttributtedStrings, is pre-processing the themes and is preloading the JS libraries. As result it's taking around of 50 ms on my iPhone 6s for processing 500 lines of code.
+It's taking around of 13ms on my iPhone  iPhone Xs Max for processing 100 lines of swift code.
 
-## Documentation
 
-You can find the documentation for the latest release on [cocoadocs](http://cocoadocs.org/docsets/Highlightr/).
 
 ## License
 

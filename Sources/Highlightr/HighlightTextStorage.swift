@@ -56,7 +56,7 @@ open class HighlightTextStorage: NSTextStorage {
         let string = (self.string as NSString)
         let paragraph = string.substring(with: range)
         let start = range.location
-        let attrs = highlightr.highlight(code: paragraph as String, language: language)
+        let attrs = highlightr.highlight(paragraph as String, as: language)
         var location = start
         beginEditing()
         for elt in attrs {

@@ -67,7 +67,7 @@ open class Highlightr {
         return res!.toArray() as! [String]
     }
 
-    open func highlight(code: String, language: String?) -> [Attributes] {
+    open func highlight(_ code: String, as language: String?) -> [Attributes] {
         let ret = hljs.invokeMethod("highlight", withArguments: [language ?? "plain", code])
         guard let json = ret?.objectForKeyedSubscript("value"),
               let data = json.toString()?.data(using: .utf8) else {
