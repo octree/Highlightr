@@ -31,7 +31,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'Highlightr'
+    pod 'Highlightr3'
 end
 ```
 
