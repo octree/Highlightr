@@ -7,7 +7,7 @@
 
 Highlightr is an iOS & macOS syntax highlighter built with Swift. It uses [highlight.js](https://highlightjs.org/) as it core, supports [185 languages and comes with 89 styles](https://highlightjs.org/static/demo/).
 
-Takes your lame string with code and returns a NSAttributtedString with proper syntax highlighting.
+Takes your lame string with code and returns attributtes syntax highlighting.
 
 ![Sample Demo](./coding.gif)
 
