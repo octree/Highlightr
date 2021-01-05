@@ -7,7 +7,13 @@ import UIKit
 
 open class HighlightTextStorage: NSTextStorage {
     public let highlightr: Highlightr
-    open var language: String?
+    open var language: String? {
+        didSet {
+            if oldValue != language {
+                highlight(in: NSRange(location: 0, length: stringStorage.length))
+            }
+        }
+    }
     let stringStorage = NSTextStorage()
     public init(highlightr: Highlightr) {
         self.highlightr = highlightr
